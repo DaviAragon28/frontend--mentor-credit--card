@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    display: flex;
+    gap: 90px;
+    flex-direction: column;
+}
+
+.background--image {
+    background-image: url('../images/bg-main-mobile.png');
+    height: 200px;
+    background-size: cover;
+    position: relative;
+}
+
+.background--image img:nth-child(1) {
+    width: 250px;
+    position: absolute;
+    right: 8vw;
+    top: 20px
+}
+.background--image img:nth-child(2) {
+    width: 250px;
+    position: absolute;
+    bottom: -70px;
+    left: 8vw;
+   
+}
+
+.container--form form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+    width: 88vw;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+label {
+    color: hsl(278, 94%, 30%);
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+input {
+    border-radius: 5px;
+    padding: 6px 10px; 
+    border: 2px solid hsl(270, 3%, 87%);
+}
+
+input:focus {
+    outline-color: hsl(278, 94%, 30%);
+}
+
+.container--form form .name--card,
+.container--form form .number--card,
+.container--form form .exp--card{
+    display: flex;
+    flex-direction: column;
+}
+
+form .exp--card div {
+    display: flex;
+    gap: 5px;
+
+}
+
+.exp--card div input {
+    width: 23vw;
+}
+
+ button {
+    cursor: pointer;
+    padding: 10px 0;
+    background-color: hsl(278, 68%, 11%);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+
+.active {
+    display: none;
+}
+
+.done {
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.done div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.done img {
+    width: 50px;
+    margin: 0 auto;
+}
+
+.done h2 {
+    font-weight: 400;
+}
+
+.done p {
+    color: hsl(279, 6%, 55%);
+}
+
+@media (min-width: 1024px) {
+    body {
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .background--image {
+        width: 400px;
+        height: 100vh;
+    }
+    .background--image img:nth-child(1) {
+        width: 300px;
+        top: 70px;
+        right: -13vw;
+    }
+    .background--image img:nth-child(2) {
+        width: 300px;
+        top: 90px;
+        bottom: 0;
+        margin: auto 0;
+    }
+
+    .container--form form {
+        width: 40vw;
+        margin: 10px auto;
+    }
+
+    .container--form {
+        display: flex;
+        align-content: center;
+        width: 90%;
+    }
+    .exp--card div input {
+        width: 10vw;
+    }
+
+    button {
+        display: block;
+        width: 100px;
+        padding: 10px 10px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+}
