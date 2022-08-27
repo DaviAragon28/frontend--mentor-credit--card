@@ -63,11 +63,11 @@ btnConfirm.addEventListener('click', () => {
             inputName.value.length <= 8, 
             'La cantidad de caracteres tiene que ser mayor a 8', 
             hasNumber(inputName.value), 
-            'No puede contener un numero'
+            'No puede contener un número'
             );
 
     onInputs(inputNumber, spanNumber, 
-            'Ingresa tu numero de tarjeta', 
+            'Ingresa tu número de tarjeta', 
             inputNumber.value.length < 16 || inputNumber.value.length > 16,
             'La cantidad de caracteres tiene que ser igual a 16',
             );
@@ -77,7 +77,7 @@ btnConfirm.addEventListener('click', () => {
             );
 
     onInputs(inputCvc, spanCvc, 
-            'Ingresa tu mes',
+            'Ingresa tu CVC',
             inputCvc.value.length < 3 || inputCvc.value.length > 3,
             'CVC = 3',
             );
