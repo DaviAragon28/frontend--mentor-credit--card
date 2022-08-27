@@ -50,6 +50,11 @@ label {
     padding-bottom: 10px;
 }
 
+.container--inputs {
+    display: flex;
+    flex-direction: column;
+}
+
 input {
     border-radius: 5px;
     padding: 6px 10px; 
@@ -58,6 +63,11 @@ input {
 
 input:focus {
     outline-color: hsl(278, 94%, 30%);
+}
+
+span {
+    font-size: 13px;
+    color: hsl(0, 100%, 66%);
 }
 
 .container--form form .name--card,
