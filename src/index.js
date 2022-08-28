@@ -1,7 +1,9 @@
 //Nodes
 const btnConfirm = document.querySelector('#confirm')
+const btnContinue = document.querySelector('#continue')
 const containerForm = document.querySelector('.container--form')
 const containerResponse = document.querySelector('#done')
+const form = document.querySelector('form')
 
 //Inputs
 const inputName = document.querySelector('#name')
@@ -17,45 +19,50 @@ const spanMonth = document.querySelector('#span--month')
 const spanYear = document.querySelector('#span--year')
 const spanCvc = document.querySelector('#span--cvc')
 
+let validForm;
+
+
+
 //Utils
 const hasNumber = (myString) => {
     return /\d/.test(myString);
 }
 
 function onInputs(input, span, ms1,
-    length, ms2, callback, ms3 ) {
+    length, ms2, callback, ms3) {
     if (input.value === '') {
         input.style.borderColor = 'hsl(0, 100%, 66%)'
         span.textContent = ms1
+        validForm = false
     } else if (length) {
         input.style.borderColor = 'hsl(0, 100%, 66%)'
         span.textContent = ms2
+        validForm = false
     } else if (callback) {
         input.style.borderColor = 'hsl(0, 100%, 66%)'
         span.textContent = ms3
+        validForm = false
     } else {
         input.style.borderColor = 'green'
         span.textContent = ''
+        validForm = true
+
     }
+    return validForm
 }
 
-// const onInputs2 = (input, number) => {
-//     input.addEventListener(oninput, () => {
-//         if (input.value.length > number) {
-//             input.value = input.value.slice(0, number); 
-//         } 
-//     })   
-// }
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
 
-// const showResponse = (conditional) => {
-//     if (conditional) {
-//         containerForm.classList.add('active')
-//         containerResponse.classList.remove('active')
-//         containerResponse.classList.add('done')
-//     } else {
-//         console.log('Not wrk');
-//     }
-// }
+
+const showResponse = (conditional) => {
+    if (conditional) {
+        containerForm.classList.add('active')
+        containerResponse.classList.remove('active')
+        containerResponse.classList.add('done')
+    }
+}
 
 btnConfirm.addEventListener('click', () => {
     onInputs(inputName, spanName, 
@@ -72,51 +79,19 @@ btnConfirm.addEventListener('click', () => {
             'La cantidad de caracteres tiene que ser igual a 16',
             );
 
-    onInputs(inputMonth, spanMonth, 
-            'Mes invalido'
-            );
-
+            
     onInputs(inputCvc, spanCvc, 
             'Ingresa tu CVC',
             inputCvc.value.length < 3 || inputCvc.value.length > 3,
-            'CVC = 3',
+            'CVC = 3'
             );
+                
+    onInputs(inputMonth, spanMonth, 
+            'Mes inválido'
+            );
+
+    setTimeout(() => {
+        showResponse(validForm)
+    }, 2500);
 })
 
-
-
-
-
-
-
-
-
-
-
-// const onInputName = () => {
-//     if (inputName.value === '') {
-//         inputName.style.borderColor = 'hsl(0, 100%, 66%)'
-//         spanName.textContent = 'Ingresa un nombre'
-//     } 
-//     else if (inputName.value.length <= 8) {
-//         inputName.style.borderColor = 'hsl(0, 100%, 66%)'
-//         spanName.textContent = 'La cantidad de caracteres tiene que ser mayor a 8'
-//     } else if (hasNumber(inputName.value)) {
-//         inputName.style.borderColor = 'hsl(0, 100%, 66%)'
-//         spanName.textContent = 'No puede contener un numero'
-
-//     } else {
-//         inputName.style.borderColor = 'green'
-//         spanName.textContent = ''
-//     }
-
-// }
-
-// const onInputNumber = () => {
-//     if (inputNumber.value === '') {
-//         inputNumber.style.borderColor = 'hsl(0, 100%, 66%)'
-//         spanNumber.textContent = 'Ingresa tu numero de tarjeta'
-//     } else if (inputNumber.value.length < 16) {
-
-//     }
-// }
